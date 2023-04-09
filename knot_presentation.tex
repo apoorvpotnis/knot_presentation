@@ -1,4 +1,5 @@
 \documentclass[10pt]{beamer}
+% \setbeamersize{text margin left=10mm,text margin right=10mm}
 
 \usepackage[OT1]{fontenc}
 
@@ -12,7 +13,7 @@
 % \setmainfont{Lato}
 % \setmathfont{LatoMath.otf}
 
-\usepackage{tikz, tikz-3dplot, tikz-cd, adjustbox, subcaption}
+\usepackage{tikz, tikz-3dplot, tikz-cd, adjustbox, subcaption, changepage}
 \usetikzlibrary{knots, hobby, braids}
 \usepackage{amsthm}
 
@@ -53,6 +54,7 @@
 \newcommand\unslant[2][-.25]{\slantbox[#1]{$#2$}}
 \newcommand{\tauu}{\unslant\tau\!}
 
+\definecolor{beamer@blended}{rgb}{0.2,0.2,0.7}
 
 \begin{document}
 
@@ -62,28 +64,34 @@
 % 	    \tableofcontents
 % 	\end{frame}
 
-	\section{Motivation}
+	\section{Outline}
 
-	\begin{frame}[fragile]
-		\begin{tikzcd}[
-			math mode=false, labels={align=center},
-			execute at end picture={
-				\scoped[on background layer]
-				\draw[red, thick, name prefix=\tikzcdmatrixname-,
-				double distance=5em, line cap=rect]
-				plot coordinates {(2-1)(2-2)(3-3)(3-4)};}]
-			&
-			&      \tmnl{Jones \\ algebra}        \arrow[r, "{\footnotesize Markov\\ \footnotesize trace}" auto=false]
-			&[4.1em] \tmnl{Jones \\ polynomial} \\
-			\tmnl{Oriented \\ link}        \arrow[r]
-			&      \tmnl{Artin \\ braid \\ group} \arrow[rd, sloped, "{\footnotesize Repres.}"]
-			\arrow[ru, sloped, "{\footnotesize Repres.}"] \\
-			&
-			& \tmnl{Temperley-- \\ Lieb \\ algebra}
-			\arrow[r, "{\footnotesize Diagrammatic\\ \footnotesize trace}"' auto=false]
-			& \tmnl{Normalised \\ bracket \\ polynomial}
-			\arrow[uu, leftrightarrow, sloped, "{\footnotesize Substitution}"]
-		\end{tikzcd}
+	\begin{frame}[fragile]\vspace{1em}
+		\begin{adjustwidth}{-0.5em}{-1.4em}
+		\begin{tikzpicture}[baseline= (a).base]
+			\node[scale=1] (a) at (0,0){
+				\begin{tikzcd}[
+					math mode=false, labels={align=center},
+					execute at end picture={
+						\scoped[on background layer]
+						\draw[red, thick, name prefix=\tikzcdmatrixname-,
+						double distance=5em, line cap=rect]
+						plot coordinates {(2-1)(2-2)(3-3)(3-4)};}]
+					&
+					&      \tmnl{Jones \\ algebra}        \arrow[r, "{\footnotesize Markov\\ \footnotesize trace}" auto=false]
+					&[4em] \tmnl{Jones \\ polynomial} \\
+					\tmnl{Oriented \\ link}        \arrow[r]
+					&      \tmnl{Artin \\ braid \\ group} \arrow[rd, sloped, "{\footnotesize Repres.}"]
+					\arrow[ru, sloped, "{\footnotesize Repres.}"] \\
+					&
+					& \tmnl{Temperley-- \\ Lieb \\ algebra}
+					\arrow[r, "{\footnotesize Diagrammatic\\ \footnotesize trace}"' auto=false]
+					& \tmnl{Normalised\phantom{asd} \\ bracket\phantom{asd} \\ polynomial\phantom{asd}}
+					\arrow[uu, leftrightarrow, sloped, "{\footnotesize Substitution}"]
+				\end{tikzcd}
+			};
+		\end{tikzpicture}
+		\end{adjustwidth}
 	\end{frame}
 
 	\section{Braids}
@@ -97,7 +105,7 @@
 				[scale=1.2,
 				cube/.style={thick,black},
 				grid/.style={very thin,gray},
-				axis/.style={->,blue,thick}]
+				axis/.style={->,beamer@blendedblue,thick}]
 
 				\draw[axis] (0,0,0) -- (6,0,0) node[anchor=west]{$x$};
 				\draw[axis] (0,0,0) -- (0,3,0) node[anchor=south]{$y$};
@@ -113,7 +121,7 @@
 				\draw[cube] (5,0,-1) -- (5,0,1);
 				\draw[cube] (5,2,-1) -- (5,2,1);
 
-				\begin{knot}[clip width=5]
+				\begin{knot}[clip width=8]
 					\strand[thick, red] (1,0,0) to [in angle=-90, curve through = {(1,1,0.5)}] (4,2,0) node[black, below]{\(p_1\)};
 					\strand[thick, red] (2,0,0) to [in angle=-90, curve through = {(1.7,1.5,0.5)}] (1,2,0) node[black, below]{\(p_2\)};
 					\strand[thick, red] (3,0,0) to [in angle=-90, curve through = {(3,0.5,0.7)}] (2,2,0) node[black, below]{\(p_3\)};
@@ -141,7 +149,7 @@
 				[scale=1.5,
 				cube/.style={thick,black},
 				grid/.style={very thin,gray},
-				axis/.style={->,blue,thick}]
+				axis/.style={->,beamer@blendedblue,thick}]
 
 				\draw[axis] (0,0,0) -- (5,0) node[anchor=west]{\(x\)};
 				\draw[axis] (0,0,0) -- (0,2.8) node[anchor=south]{\(y\)};
@@ -170,7 +178,7 @@
 			\centering
 			\subcaptionbox*{\(b_1\)}{
 				\begin{tikzpicture}[scale=1]
-					\begin{knot}[clip width=5]
+					\begin{knot}[clip width=8]
 						\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.5,0.5)}] (1,2);
 						\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.9,0.5)}] (3,2);
 						\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(2,1.3)}] (2,2);
@@ -178,7 +186,7 @@
 				\end{tikzpicture}\label{fig:braidmultiplication1}}\qquad\quad
 			\subcaptionbox*{\(b_2\)}{
 				\begin{tikzpicture}[scale=1]
-					\begin{knot}[clip width=5]
+					\begin{knot}[clip width=8]
 						\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.7,1)}] (2,2);
 						\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.7,0.5)}] (1,2);
 						\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(3,0.5)}] (3,2);
@@ -186,7 +194,7 @@
 				\end{tikzpicture}\label{fig:braidmultiplication2}}\quad\quad\quad
 			\subcaptionbox*{\(b_1 b_2\)}{
 				\begin{tikzpicture}[scale=1]
-					\begin{knot}[clip width=5]
+					\begin{knot}[clip width=8]
 						\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.7,1)}] (2,2);
 						\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.7,0.5)}] (1,2);
 						\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(3,0.5)}] (3,2);
@@ -203,7 +211,7 @@
 		\frametitle{The identity braid \(\I_n\)}
 		\begin{figure}\centering
 			\begin{tikzpicture}[scale=1]
-				\begin{knot}[yscale=2, clip width=5]
+				\begin{knot}[yscale=2, clip width=8]
 					\strand[thick, red] (1,0) to (1,2);
 					\strand[thick, red] (2,0) to (2,2);
 					\strand[thick, red] (3,0) to (3,2);
@@ -221,7 +229,7 @@
 			\centering
 			\subcaptionbox*{\(b\)}{
 				\begin{tikzpicture}[scale=1]
-					\begin{knot}[clip width=5]
+					\begin{knot}[clip width=8]
 						\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.5,0.5)}] (1,2);
 						\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.9,0.5)}] (3,2);
 						\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(2,1.3)}] (2,2);
@@ -230,7 +238,7 @@
 				\end{tikzpicture}\label{fig:braidinverse1}}\qquad\quad
 			\subcaptionbox*{\(b^{-1}\)}{
 				\begin{tikzpicture}[scale=1]
-					\begin{knot}[clip width=5, yscale=-1]
+					\begin{knot}[clip width=8, yscale=-1]
 						\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.5,0.5)}] (1,2);
 						\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.9,0.5)}] (3,2);
 						\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(2,1.3)}] (2,2);
@@ -239,13 +247,13 @@
 				\end{tikzpicture}\label{fig:braidinverse2}}\quad\quad\quad
 			\subcaptionbox*{\(b b^{-1} = \I_3\)}{
 				\begin{tikzpicture}[scale=1]
-					\begin{knot}[clip width=5]
+					\begin{knot}[clip width=8]
 						\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.5,0.5)}] (1,2);
 						\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.9,0.5)}] (3,2);
 						\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(2,1.3)}] (2,2);
 						\flipcrossings{2}
 						\begin{scope}
-							\begin{knot}[clip width=5, yscale=-1]
+							\begin{knot}[clip width=8, yscale=-1]
 								\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.5,0.5)}] (1,2);
 								\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.9,0.5)}] (3,2);
 								\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(2,1.3)}] (2,2);
@@ -257,7 +265,7 @@
 % 			\quad\quad
 % 			\subcaptionbox*{\(\I_3\)}{
 % 				\begin{tikzpicture}[scale=0.8]
-% 					\begin{knot}[clip width=5, yscale=2]
+% 					\begin{knot}[clip width=8, yscale=2]
 % 						\strand[thick, red] (1,0) to (1,2);
 % 						\strand[thick, red] (2,0) to (2,2);
 % 						\strand[thick, red] (3,0) to (3,2);
@@ -279,39 +287,41 @@
 	\end{frame}
 
 
-	\begin{frame}
+	\begin{frame}\vspace{1em}
 		\frametitle{Generators of the braid group}
 		\begin{figure}
 			\centering
-			\subcaptionbox*{\(\tauu_i\)}{
-				\begin{tikzpicture}[scale=0.7]
-					\begin{knot}[clip width=8]
-						\strand[thick, red] (-3,-0.1) to (-3,2.1);
-						\strand[thick, red] (-1,-0.1) to (-1,2.1);
-						\strand[thick, red] (0,0) to (2,2);
-						\strand[thick, red] (2,0) to (0,2);
-						\strand[thick, red] (3,-0.1) to (3,2.1);
-						\strand[thick, red] (5,-0.1) to (5,2.1);
-					\end{knot}
-					\node[ultra thick, red] at (-2,1) {\(\cdots\)};
-					\node[ultra thick, red] at (4,1) {\(\cdots\)};
+			\begin{tikzpicture}[scale=0.7]
+				\begin{knot}[clip width=8]
+					\strand[thick, red] (-3,-0.1) to (-3,2.1);
+					\strand[thick, red] (-1,-0.1) to (-1,2.1);
+					\strand[thick, red] (0,0) to (2,2);
+					\strand[thick, red] (2,0) to (0,2);
+					\strand[thick, red] (3,-0.1) to (3,2.1);
+					\strand[thick, red] (5,-0.1) to (5,2.1);
+				\end{knot}
+				\node[ultra thick, red] at (-2,1) {\(\cdots\)};
+				\node[ultra thick, red] at (4,1) {\(\cdots\)};
 
-					\node[below, label={\(p_1\)}] at (-3,-0.7) {};
-					\node[below, label={\(p_{i-1}\)}] at (-1,-0.7) {};
-					\node[below, label={\(q_1\)}] at (-3,2) {};
-					\node[below, label={\(q_{i-1}\)}] at (-1,2) {};
-					\node[below, label={\(q_i\)}] at (0,2) {};
-					\node[below, label={\(q_{i+1}\)}] at (2,2) {};
-					\node[below, label={\(p_i\)}] at (0,-0.7) {};
-					\node[below, label={\(p_{i+1}\)}] at (2,-0.7) {};
-					\node[below, label={\(p_{i+2}\)}] at (3,-0.7) {};
-					\node[below, label={\(p_{n}\)}] at (5,-0.7) {};
-					\node[below, label={\(q_{i+2}\)}] at (3,2) {};
-					\node[below, label={\(q_{n}\)}] at (5,2) {};
+				\node[below, label={\(p_1\)}] at (-3,-0.7) {};
+				\node[below, label={\(p_{i-1}\)}] at (-1,-0.7) {};
+				\node[below, label={\(q_1\)}] at (-3,2) {};
+				\node[below, label={\(q_{i-1}\)}] at (-1,2) {};
+				\node[below, label={\(q_i\)}] at (0,2) {};
+				\node[below, label={\(q_{i+1}\)}] at (2,2) {};
+				\node[below, label={\(p_i\)}] at (0,-0.7) {};
+				\node[below, label={\(p_{i+1}\)}] at (2,-0.7) {};
+				\node[below, label={\(p_{i+2}\)}] at (3,-0.7) {};
+				\node[below, label={\(p_{n}\)}] at (5,-0.7) {};
+				\node[below, label={\(q_{i+2}\)}] at (3,2) {};
+				\node[below, label={\(q_{n}\)}] at (5,2) {};
 
-					%\node at (1, -1.1) {\(\tauu_i\)};
-				\end{tikzpicture}}
-			\qquad\quad\subcaptionbox*{\(\tauu_i^{-1}\)}{
+				\node at (1, -1.1) {\(\tauu_i\)};
+
+				\end{tikzpicture}
+
+				\vspace{12pt}
+
 				\begin{tikzpicture}[scale=0.7]
 					\begin{knot}[clip width=8]
 						\strand[thick, red] (-3,-0.1) to (-3,2.1);
@@ -338,32 +348,46 @@
 					\node[below, label={\(q_{i+2}\)}] at (3,2) {};
 					\node[below, label={\(q_{n}\)}] at (5,2) {};
 
-					%\node at (1, -1.1) {\(\tauu_i^{-1}\)};
-				\end{tikzpicture}}
+					\node at (1, -1.1) {\(\tauu_i^{-1}\)};
+				\end{tikzpicture}
+
 			\caption{Generators \(\tauu_i\) and \(\tauu_i^{-1}\)}
 			\label{fig:geometricbraidgenerators}
 		\end{figure}
 	\end{frame}
 
+	\begin{frame}
+		\frametitle{Type III move: \(\tauu_i\, \tauu_{i+1} \tauu_i = \tauu_{i+1} \tauu_i\, \tauu_{i+1}\)}
+		\begin{figure}\centering
+			\begin{tikzpicture}
+				[scale=0.6]
 
+				\begin{knot}[clip width=6]
+					\strand[ultra thick, beamer@blendedblue] (0,0) to [in angle=-90, out angle=90, curve through = {(2,2) (4,4)}] (4,6);
+					\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(0,2) (0,4)}] (2,6);
+					\strand[thick, red] (4,0) to [in angle=-90, out angle=90, curve through = {(4,2) (2,4)}] (0,6);
+				\end{knot}
 
+				\node at (2, -0.7) {\(\tauu_i\, \tauu_{i+1} \tauu_i\)};
+			\end{tikzpicture}
+			\quad\quad\quad\quad
+			\begin{tikzpicture}
+				[scale=0.6]
 
+				\begin{knot}[clip width=6]
+					\strand[ultra thick, beamer@blendedblue] (0,0) to [in angle=-90, out angle=90, curve through = {(0,2) (2,4)}] (4,6);
+					\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(4,2) (2,4)}] (2,6);
+					\strand[thick, red] (4,0) to [in angle=-90, out angle=90, curve through = {(2,2) (0,4)}] (0,6);
+					%\flipcrossings{1,2}
+				\end{knot}
+
+				\node at (2, -0.7) {\(\tauu_{i+1} \tauu_i\, \tauu_{i+1}\)};
+			\end{tikzpicture}
+
+			\captionof{figure}{A type III move illustrating \(\tauu_i\, \tauu_{i+1} \tauu_i = \tauu_{i+1} \tauu_i\, \tauu_{i+1}\)}
+			\label{fig:type3}
+		\end{figure}
+	\end{frame}
 
 
 \end{document}
-
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-\[F = ma ABCDEFGHIJKLMNOPQRSTUVWXYZ\]
-\[\int \oint \sum\]
-\[\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\]
-\[\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\]
-
-\section{Mapping}
-\begin{frame}{Mapping theorem}
-	\begin{thm}[Mapping]
-		If \(\tilde{f} \in \homeo_\kappa^*(\tilde{\sigma}, \tilde{z}) \cap \homeo_0(\tilde{\sigma}, \tilde{z})\), then \[\kappa_*(\tilde{f}\hspace{0.5pt}) = f \in \homeo_0(\sigma, z).\] Moreover, the induced homomorphism \[\kappa_* \colon \homeo_\kappa^*(\tilde{\sigma}, \tilde{z}) \cap \homeo_0(\tilde{\sigma}, \tilde{z}) \rightarrow \homeo_0(\sigma, z)\] is an isomorphism.
-	\end{thm}
-	\begin{proof}
-		Obvious.
-	\end{proof}
-\end{frame}
