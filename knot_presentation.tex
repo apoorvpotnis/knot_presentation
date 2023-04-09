@@ -1,7 +1,7 @@
 \documentclass[10pt]{beamer}
 % \setbeamersize{text margin left=10mm,text margin right=10mm}
 
-\usepackage[OT1]{fontenc}
+% \usepackage[OT1]{fontenc}
 
 \beamertemplatenavigationsymbolsempty
 
@@ -18,7 +18,7 @@
 \usepackage{amsthm}
 
 \usepackage{amsfonts, esint, slantsc, bboldx}
-\usepackage[I]{sansmathfonts}
+\usepackage{sansmathfonts}
 
 \usetikzlibrary{cd, backgrounds}
 \newcommand*\tmnl[2][c]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
@@ -38,9 +38,11 @@
 {
 	\begin{frame}
 		\frametitle{Table of Contents}
-		\tableofcontents[currentsection]
+		\tableofcontents[currentsection, currentsubsection]
 	\end{frame}
+	\frame{\sectionpage}
 }
+\AtBeginSubsection{\frame{\subsectionpage}}
 
 \newsavebox{\foobox}
 \newcommand{\slantbox}[2][0]{\mbox{%
@@ -98,7 +100,8 @@
 
 	\subsection{Geometric definition of braids}
 
-	\begin{frame}{Geometric definition of braids}
+	\begin{frame}
+		\frametitle{Three dimensional representation}
 		\begin{figure}
 		    \centering
 			\begin{tikzpicture}
@@ -144,6 +147,7 @@
 
 	\begin{frame}
 		\begin{figure}
+			\frametitle{Two dimensional representation}
 			\centering
 			\begin{tikzpicture}
 				[scale=1.5,
@@ -286,6 +290,7 @@
 	    Thus, braids form a group, known as the Artin braid group.
 	\end{frame}
 
+	\subsection{Generators and relations}
 
 	\begin{frame}\vspace{1em}
 		\frametitle{Generators of the braid group}
@@ -357,6 +362,40 @@
 	\end{frame}
 
 	\begin{frame}
+		\frametitle{Type II move: \(\tauu_i \tauu_i^{-1} = \I_n\)}
+		\begin{figure}
+			\centering
+			\begin{tikzpicture}
+				[scale=0.7]
+
+				\begin{knot}[clip width=8]
+					\strand[thick, red] (0,0) to [in angle=-90, out angle=90, curve through = {(2,2)}] (0,4);
+					\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(0,2)}] (2,4);
+					\flipcrossings{1,2}
+				\end{knot}
+
+				\node at (1, -0.7) {\(\tauu_i \tauu_i^{-1}\)};
+			\end{tikzpicture}
+			\quad\quad\quad\quad
+			\begin{tikzpicture}
+				[scale=0.7]
+
+				\begin{knot}[clip width=8]
+					\strand[thick, red] (0,0) to (0,4);
+					\strand[thick, red] (2,0) to (2,4);
+					\flipcrossings{1,2}
+				\end{knot}
+
+				\node at (1, -0.7) {\(\I_n\)};
+			\end{tikzpicture}
+
+			\captionof{figure}{A type II move illustrating \(\tauu_i \tauu_i^{-1} = \I_n\)}
+			\label{fig:type2}
+		\end{figure}
+	\end{frame}
+
+
+	\begin{frame}
 		\frametitle{Type III move: \(\tauu_i\, \tauu_{i+1} \tauu_i = \tauu_{i+1} \tauu_i\, \tauu_{i+1}\)}
 		\begin{figure}\centering
 			\begin{tikzpicture}
@@ -386,6 +425,41 @@
 
 			\captionof{figure}{A type III move illustrating \(\tauu_i\, \tauu_{i+1} \tauu_i = \tauu_{i+1} \tauu_i\, \tauu_{i+1}\)}
 			\label{fig:type3}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Sliding of crossings: \(\tauu_i\, \tauu_j = \tauu_j\, \tauu_i\)}
+		\begin{figure}\centering
+			\begin{tikzpicture}
+				[scale=0.5]
+
+				\begin{knot}[clip width=8]
+					\strand[thick, red] (0,0) to [in angle=-90, out angle=90, curve through = {(2,2)}] (2,6);
+					\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(0,2)}] (0,6);
+					\strand[thick, red] (4,0) to [in angle=-90, out angle=90, curve through = {(4,4)}] (6,6);
+					\strand[thick, red] (6,0) to [in angle=-90, out angle=90, curve through = {(6,4)}] (4,6);
+				\end{knot}
+
+				\node at (3, -0.7) {\(\tauu_i\, \tauu_j\)};
+			\end{tikzpicture}
+			\quad\quad\quad\quad
+			\begin{tikzpicture}
+				[scale=0.5]
+
+				\begin{knot}[clip width=8]
+					\strand[thick, red] (0,0) to [in angle=-90, out angle=90, curve through = {(0,4)}] (2,6);
+					\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(2,4)}] (0,6);
+					\strand[thick, red] (4,0) to [in angle=-90, out angle=90, curve through = {(6,2)}] (6,6);
+					\strand[thick, red] (6,0) to [in angle=-90, out angle=90, curve through = {(4,2)}] (4,6);
+					%\flipcrossings{1,2}
+				\end{knot}
+
+				\node at (3, -0.7) {\(\tauu_j\, \tauu_i\)};
+			\end{tikzpicture}
+
+			\captionof{figure}{Sliding of crossings illustrating \(\tauu_i\, \tauu_j = \tauu_j\, \tauu_i\)}
+			\label{fig:sliding}
 		\end{figure}
 	\end{frame}
 
