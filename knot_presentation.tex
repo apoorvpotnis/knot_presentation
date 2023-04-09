@@ -13,7 +13,7 @@
 % \setmainfont{Lato}
 % \setmathfont{LatoMath.otf}
 
-\usepackage{tikz, tikz-3dplot, tikz-cd, adjustbox, subcaption, changepage}
+\usepackage{tikz, tikz-3dplot, tikz-cd, adjustbox, subcaption, changepage, mathtools, boldline, makecell, booktabs}
 \usetikzlibrary{knots, hobby, braids}
 \usepackage{amsthm}
 
@@ -27,6 +27,46 @@
 \newtheorem{thm}{Theorem}
 
 \newcommand{\I}{\mathbfbb{I}}
+% \AtBeginDocument{\newcommand*\pii{\mathrm{π}}}
+\newcommand{\R}{\mathbfbb{R}}
+\newcommand{\C}{\mathbfbb{C}}
+% \renewcommand*{\hbar}{\mathrm{^^^^0127}}
+\renewcommand{\i}{\mathrm{i}}
+% \newcommand{\I}{\mathbfbb{I}}
+\newcommand{\Z}{\mathbfbb{Z}}
+\newcommand{\ssep}{\mid}
+\newcommand{\B}{\mathrm{B}}
+\newcommand{\GB}{\text{GB}}
+\newcommand{\TL}{\text{TL}}
+% \newcommand{\sigmaa}{\mathrm{\sigma}}
+% \newcommand{\tauu}{\mathrm{\tau}}
+\newcommand{\U}{\mathrm{U}}
+% \DeclarePairedDelimiterX\presentation[1]\langle\rangle{\def\given{\;\delimsize\vert\;}#1}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
+\def\setaux#1|{#1\;\delimsize\vert\;}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\bracket}{\left\langle}{\right\rangle}
+\makeatletter
+\def\bign#1{\mathclose{\hbox{$\left#1\vbox to8.5\p@{}\right.\n@space$}}\mathopen{}}
+\makeatother
+
+%\newcommand{\e}{\mathrm{e}}
+%\newcommand{\M}{\mathrm{M}}
+% \newcommand{\upphi}{\mathrm{\phi}}
+% \newcommand{\upPhii}{\mathrm{\Phi}}
+% \newcommand{\updelta}{\mathrm{\delta}}
+% \newcommand{\uprho}{\mathrm{\rho}}
+\DeclareMathOperator{\tr}{tr}
+% \DeclareMathOperator{\uprhoo}{\uprho}
+% \DeclareMathOperator{\proj}{\pi}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\littletaller % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+	}}
 
 \title{Braids and the Jones polynomial}
 \subtitle{Thesis presentation}
@@ -54,7 +94,7 @@
 		\pdfrestore
 	}}
 \newcommand\unslant[2][-.25]{\slantbox[#1]{$#2$}}
-\newcommand{\tauu}{\unslant\tau\!}
+\newcommand{\sigmaa}{\unslant\sigma\!}
 
 \definecolor{beamer@blended}{rgb}{0.2,0.2,0.7}
 
@@ -98,7 +138,7 @@
 
 	\section{Braids}
 
-	\subsection{Geometric definition of braids}
+	\subsection{Geometric definition}
 
 	\begin{frame}
 		\frametitle{Three dimensional representation}
@@ -287,7 +327,7 @@
 	\end{frame}
 
 	\begin{frame}
-	    Thus, braids form a group, known as the Artin braid group.
+	    Thus, braids form a group, known as the Artin braid group \(\B_n\).
 	\end{frame}
 
 	\subsection{Generators and relations}
@@ -321,7 +361,7 @@
 				\node[below, label={\(q_{i+2}\)}] at (3,2) {};
 				\node[below, label={\(q_{n}\)}] at (5,2) {};
 
-				\node at (1, -1.1) {\(\tauu_i\)};
+				\node at (1, -1.1) {\(\sigmaa_i\)};
 
 				\end{tikzpicture}
 
@@ -353,16 +393,16 @@
 					\node[below, label={\(q_{i+2}\)}] at (3,2) {};
 					\node[below, label={\(q_{n}\)}] at (5,2) {};
 
-					\node at (1, -1.1) {\(\tauu_i^{-1}\)};
+					\node at (1, -1.1) {\(\sigmaa_i^{-1}\)};
 				\end{tikzpicture}
 
-			\caption{Generators \(\tauu_i\) and \(\tauu_i^{-1}\)}
+			\caption{Generators \(\sigmaa_i\) and \(\sigmaa_i^{-1}\)}
 			\label{fig:geometricbraidgenerators}
 		\end{figure}
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Type II move: \(\tauu_i \tauu_i^{-1} = \I_n\)}
+		\frametitle{Type II move: \(\sigmaa_i\hspace{1pt} \sigmaa_i^{-1} = \I_n\)}
 		\begin{figure}
 			\centering
 			\begin{tikzpicture}
@@ -374,7 +414,7 @@
 					\flipcrossings{1,2}
 				\end{knot}
 
-				\node at (1, -0.7) {\(\tauu_i \tauu_i^{-1}\)};
+				\node at (1, -0.7) {\(\sigmaa_i\hspace{1pt} \sigmaa_i^{-1}\)};
 			\end{tikzpicture}
 			\quad\quad\quad\quad
 			\begin{tikzpicture}
@@ -389,14 +429,14 @@
 				\node at (1, -0.7) {\(\I_n\)};
 			\end{tikzpicture}
 
-			\captionof{figure}{A type II move illustrating \(\tauu_i \tauu_i^{-1} = \I_n\)}
+			\captionof{figure}{A type II move illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_i^{-1} = \I_n\)}
 			\label{fig:type2}
 		\end{figure}
 	\end{frame}
 
 
 	\begin{frame}
-		\frametitle{Type III move: \(\tauu_i\, \tauu_{i+1} \tauu_i = \tauu_{i+1} \tauu_i\, \tauu_{i+1}\)}
+		\frametitle{Type III move: \(\sigmaa_i\hspace{1pt} \sigmaa_{i+1} \sigmaa_i = \sigmaa_{i+1} \sigmaa_i\hspace{1pt} \sigmaa_{i+1}\)}
 		\begin{figure}\centering
 			\begin{tikzpicture}
 				[scale=0.6]
@@ -407,7 +447,7 @@
 					\strand[thick, red] (4,0) to [in angle=-90, out angle=90, curve through = {(4,2) (2,4)}] (0,6);
 				\end{knot}
 
-				\node at (2, -0.7) {\(\tauu_i\, \tauu_{i+1} \tauu_i\)};
+				\node at (2, -0.7) {\(\sigmaa_i\hspace{1pt} \sigmaa_{i+1} \sigmaa_i\)};
 			\end{tikzpicture}
 			\quad\quad\quad\quad
 			\begin{tikzpicture}
@@ -420,16 +460,16 @@
 					%\flipcrossings{1,2}
 				\end{knot}
 
-				\node at (2, -0.7) {\(\tauu_{i+1} \tauu_i\, \tauu_{i+1}\)};
+				\node at (2, -0.7) {\(\sigmaa_{i+1} \sigmaa_i\hspace{1pt} \sigmaa_{i+1}\)};
 			\end{tikzpicture}
 
-			\captionof{figure}{A type III move illustrating \(\tauu_i\, \tauu_{i+1} \tauu_i = \tauu_{i+1} \tauu_i\, \tauu_{i+1}\)}
+			\captionof{figure}{A type III move illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_{i+1} \sigmaa_i = \sigmaa_{i+1} \sigmaa_i\hspace{1pt} \sigmaa_{i+1}\)}
 			\label{fig:type3}
 		\end{figure}
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Sliding of crossings: \(\tauu_i\, \tauu_j = \tauu_j\, \tauu_i\)}
+		\frametitle{Sliding of crossings: \(\sigmaa_i\hspace{1pt} \sigmaa_j = \sigmaa_j\hspace{1pt} \sigmaa_i\)}
 		\begin{figure}\centering
 			\begin{tikzpicture}
 				[scale=0.5]
@@ -441,7 +481,7 @@
 					\strand[thick, red] (6,0) to [in angle=-90, out angle=90, curve through = {(6,4)}] (4,6);
 				\end{knot}
 
-				\node at (3, -0.7) {\(\tauu_i\, \tauu_j\)};
+				\node at (3, -0.7) {\(\sigmaa_i\hspace{1pt} \sigmaa_j\)};
 			\end{tikzpicture}
 			\quad\quad\quad\quad
 			\begin{tikzpicture}
@@ -455,12 +495,26 @@
 					%\flipcrossings{1,2}
 				\end{knot}
 
-				\node at (3, -0.7) {\(\tauu_j\, \tauu_i\)};
+				\node at (3, -0.7) {\(\sigmaa_j\hspace{1pt} \sigmaa_i\)};
 			\end{tikzpicture}
 
-			\captionof{figure}{Sliding of crossings illustrating \(\tauu_i\, \tauu_j = \tauu_j\, \tauu_i\)}
+			\captionof{figure}{Sliding of crossings illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_j = \sigmaa_j\hspace{1pt} \sigmaa_i\)}
 			\label{fig:sliding}
 		\end{figure}
+	\end{frame}
+
+	\subsection{Algebraic definition}
+
+	\begin{frame}
+		\frametitle{Presentation of the braid group}
+		The Artin braid group \(\B_n\) admits the following presentation on the generators \(\sigmaa_i\), for \(1 \leq i \leq n-1 \).
+		\[\B_n \coloneq\Biggl\langle
+		\begin{array}{cV{1.5}rcll}
+			& \sigmaa_i \hspace{1pt}\sigmaa_i^{-1} &=& \mathbfbb{I}_n &\\
+			\sigmaa_1,\ldots, \sigmaa_{n-1} & \sigmaa_i\hspace{1pt} \sigmaa_{i+1} \sigmaa_i &=& \sigmaa_{i+1} \sigmaa_i\hspace{1pt} \sigmaa_{i+1} &\text{if } i+1 \leq n-1\\
+			& \sigmaa_i\hspace{1pt} \sigmaa_j &=& \sigmaa_j \hspace{1pt}\sigmaa_i &\text{if } \abs{i-j} \geq 2
+		\end{array}
+		\Biggr\rangle\]
 	\end{frame}
 
 
