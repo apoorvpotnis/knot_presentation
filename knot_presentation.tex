@@ -13,7 +13,7 @@
 % \setmainfont{Lato}
 % \setmathfont{LatoMath.otf}
 
-\usepackage{tikz, tikz-3dplot, tikz-cd, adjustbox, subcaption, changepage, mathtools, boldline, makecell, booktabs}
+\usepackage{tikz, tikz-3dplot, tikz-cd, adjustbox, subcaption, changepage, mathtools, boldline, makecell, booktabs, graphicx}
 \usetikzlibrary{knots, hobby, braids}
 \usepackage{amsthm}
 
@@ -516,6 +516,40 @@
 		\end{array}
 		\Biggr\rangle\]
 	\end{frame}
+
+	\section{Closure}
+
+	\begin{frame}
+		\frametitle{Closure of a braid \(\overline{b}\)}
+		\begin{figure}\centering
+			\raisebox{0cm}{\begin{tikzpicture}
+					\begin{knot}[clip width=5]
+						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
+						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
+						\flipcrossings{1,2}
+% 						\strand[very thick, blue] (0,0) to[in angle=-90, out angle=90, curve through = {(1,1)}] (2,2);
+% 						\strand[very thick, blue] (2,0) to[in angle=-90, out angle=90, curve through = {(1,1)}] (0,2);
+% 						\strand[very thick, blue] (4,0) to (4,2);
+						%\strand[thick, red] (6,0) to [in angle=-90, out angle=90, curve through = {(6,4)}] (4,6);
+					\end{knot}
+
+					\node at (0.5, -0.5) {\(b\)};
+				\end{tikzpicture}}\quad\quad\quad\quad
+				\begin{tikzpicture}
+					\begin{knot}[clip width = 5]
+						\strand[thick, red] (0,2) to (0,3) to (2,3) to (2,0) to (0,0) to (0,1);
+						\strand[thick, red] (1,2) to (1,2.5) to (1.5,2.5) to (1.5,0.5) to (1,0.5) to (1,1);
+						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
+						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
+						\flipcrossings{1,2}
+					\end{knot}
+					\node at (1.25,-0.5) {\(\overline{b}\)};
+				\end{tikzpicture}
+			\caption{Closure of a braid}
+			\label{fig:closure}
+		\end{figure}
+	\end{frame}
+
 
 
 \end{document}
