@@ -6,7 +6,7 @@
 \beamertemplatenavigationsymbolsempty
 
 %\usefonttheme{professionalfonts}
-%\usepackage{lxfonts}
+% \usepackage{lxfonts}
 % \usepackage{mathtools}
 % \usepackage{lato}
 % \usepackage{unicode-math}
@@ -134,6 +134,7 @@
 			};
 		\end{tikzpicture}
 		\end{adjustwidth}
+
 	\end{frame}
 
 	\section{Braids}
@@ -526,12 +527,12 @@
 		\begin{figure}\centering
 			\raisebox{0cm}{\begin{tikzpicture}
 					\begin{knot}[clip width=5]
-						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
-						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
+						\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+						\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
 						\flipcrossings{1,2}
-% 						\strand[very thick, blue] (0,0) to[in angle=-90, out angle=90, curve through = {(1,1)}] (2,2);
-% 						\strand[very thick, blue] (2,0) to[in angle=-90, out angle=90, curve through = {(1,1)}] (0,2);
-% 						\strand[very thick, blue] (4,0) to (4,2);
+% 						\strand[very thick, beamer@blendedblue] (0,0) to[in angle=-90, out angle=90, curve through = {(1,1)}] (2,2);
+% 						\strand[very thick, beamer@blendedblue] (2,0) to[in angle=-90, out angle=90, curve through = {(1,1)}] (0,2);
+% 						\strand[very thick, beamer@blendedblue] (4,0) to (4,2);
 						%\strand[thick, red] (6,0) to [in angle=-90, out angle=90, curve through = {(6,4)}] (4,6);
 					\end{knot}
 
@@ -541,11 +542,11 @@
 					\begin{knot}[clip width = 5]
 						\strand[thick, red] (0,2) to (0,3) to (2,3) to (2,0) to (0,0) to (0,1);
 						\strand[thick, red] (1,2) to (1,2.5) to (1.5,2.5) to (1.5,0.5) to (1,0.5) to (1,1);
-						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
-						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
+						\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+						\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
 						\flipcrossings{1,2}
 					\end{knot}
-					\node at (1.25,-0.5) {\(\overline{b}\)};
+					\node at (1,-0.5) {\(\overline{b}\)};
 				\end{tikzpicture}
 			\caption{Closure of a braid}
 			\label{fig:closure}
@@ -568,60 +569,126 @@
 		\frametitle{Conjugation}
 		\begin{figure}
 			\centering
-			\subcaptionbox*{}{
-				\begin{tikzpicture}[scale=0.6]
-					\begin{knot}[clip width = 5]
+				\begin{tikzpicture}[scale=1]
+					\begin{knot}[clip width = 7]
 						\strand[thick, red] (0,0) to [in=-90, out=90](1,1);
 						\strand[thick, red] (0,2) to [out=90, in=-90](1,3) to (1,3.5) to (1.5,3.5) to (1.5,-0.5) to (1,-0.5) to (1,0);
 						\strand[thick, red] (1,0) to [in=-90, out=90](0,1);
 						\strand[thick, red] (1,2) to [out=90, in=-90](0,3) to (0,4) to (2,4) to (2,-1) to (0,-1) to (0,0);
-						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
-						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
+						\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+						\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
 						\flipcrossings{2}
 					\end{knot}
 					\node at (-0.5,0.5) {\(g^{-1}\)};
 					\node at (-0.5,1.5) {\(b\)};
 					\node at (-0.5,2.5) {\(g\)};
-				\end{tikzpicture}}
-			\qquad\subcaptionbox*{}{
-				\begin{tikzpicture}[scale=0.6]
-					\begin{knot}[clip width = 5]
-						\strand[thick, red] (0,2) to (0,3.5) to (1.5,3.5) to (2.5,2.5) to (3,2.5) to (3,0.5) to (2.5,0.5) to (1.5,-0.5) to (0,-0.5) to (0,1);
-						\strand[thick, red] (1,2) to (1,2.5) to (1.5,2.5) to (2.5,3.5) to (3.5,3.5) to (3.5,-0.5) to (2.5,-0.5) to (1.5,0.5) to (1,0.5) to (1,1);
-						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
-						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
+					\begin{scope}[xshift=4cm]
+						\begin{knot}[clip width = 7]
+							\strand[thick, red] (0,2) to (0,3.5) to (1.5,3.5) to (2.5,2.5) to (3,2.5) to (3,0.5) to (2.5,0.5) to (1.5,-0.5) to (0,-0.5) to (0,1);
+							\strand[thick, red] (1,2) to (1,2.5) to (1.5,2.5) to (2.5,3.5) to (3.5,3.5) to (3.5,-0.5) to (2.5,-0.5) to (1.5,0.5) to (1,0.5) to (1,1);
+							\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+							\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
+							\flipcrossings{1,2}
+						\end{knot}
+						\node at (2,-1) {\(g^{-1}\)};
+						\node at (-0.5,1.5) {\(b\)};
+						\node at (2,4) {\(g\)};
+					\end{scope}
+				\end{tikzpicture}
+% 				\par\medskip
+% 			\subcaptionbox*{}{
+% 				\begin{tikzpicture}[scale=0.6]
+% 					\begin{knot}[clip width = 5]
+% 						\strand[thick, red] (0,2) to (0,3.75) to (2.5,3.75) to (2.5,2.75) to (1.5,1.75) to (1.5,1.25) to (2.5,0.25) to (2.5,-0.75) to (0,-0.75) to (0,1);
+% 						\strand[thick, red] (1,2) to (1,3.25) to (1.5,3.25) to (1.5,2.75) to (2.5,1.75) to (2.5,1.25) to (1.5,0.25) to (1.5,-0.25) to (1,-0.25) to (1,1);
+% 						\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+% 						\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
+% 						\flipcrossings{1,2}
+% 					\end{knot}
+% 					\node at (3,0.75) {\(g^{-1}\)};
+% 					\node at (-0.5,1.5) {\(b\)};
+% 					\node at (3,2.25) {\(g\)};
+% 				\end{tikzpicture}}
+% 			\qquad\subcaptionbox*{}{
+% 				\begin{tikzpicture}[scale=0.6]
+% 					\begin{knot}[clip width = 5]
+% 						\strand[thick, red] (0,2) to (0,3) to (2,3) to (2,0) to (0,0) to (0,1);
+% 						\strand[thick, red] (1,2) to (1,2.5) to (1.5,2.5) to (1.5,0.5) to (1,0.5) to (1,1);
+% 						\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+% 						\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
+% 						\flipcrossings{1,2}
+% 					\end{knot}
+% 					\node at (-0.5,1.5) {\(b\)};
+% 				\end{tikzpicture}}
+			\caption{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\) (part 1)}
+			\label{fig:conjugationone}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Conjugation}
+		\begin{figure}
+		    \centering
+			\begin{tikzpicture}[scale=1]
+				\begin{knot}[clip width = 7]
+					\strand[thick, red] (0,2) to (0,3.75) to (2.5,3.75) to (2.5,2.75) to (1.5,1.75) to (1.5,1.25) to (2.5,0.25) to (2.5,-0.75) to (0,-0.75) to (0,1);
+					\strand[thick, red] (1,2) to (1,3.25) to (1.5,3.25) to (1.5,2.75) to (2.5,1.75) to (2.5,1.25) to (1.5,0.25) to (1.5,-0.25) to (1,-0.25) to (1,1);
+					\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+					\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
+					\flipcrossings{1,2}
+				\end{knot}
+				\node at (3,0.75) {\(g^{-1}\)};
+				\node at (-0.5,1.5) {\(b\)};
+				\node at (3,2.25) {\(g\)};
+				\begin{scope}
+					\begin{knot}[xshift = 5cm, clip width = 7]
+						\node at (-0.5,1.5) {\(b\)};
+						\strand[thick, red] (0,2) to (0,3) to (2,3) to (2,0) to (0,0) to (0,1);
+						\strand[thick, red] (1,2) to (1,2.5) to (1.5,2.5) to (1.5,0.5) to (1,0.5) to (1,1);
+						\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+						\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
 						\flipcrossings{1,2}
 					\end{knot}
-					\node at (2,-1) {\(g^{-1}\)};
-					\node at (-0.5,1.5) {\(b\)};
-					\node at (2,4) {\(g\)};
-				\end{tikzpicture}}\par\medskip
+				\end{scope}
+			\end{tikzpicture}
+			\caption{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\) (part 2)}
+			\label{fig:conjugationtwo}
+		\end{figure}
+
+	\end{frame}
+
+
+	\begin{frame}
+		\frametitle{Markov move}
+		\begin{figure}
+			\centering
 			\subcaptionbox*{}{
-				\begin{tikzpicture}[scale=0.6]
-					\begin{knot}[clip width = 5]
-						\strand[thick, red] (0,2) to (0,3.75) to (2.5,3.75) to (2.5,2.75) to (1.5,1.75) to (1.5,1.25) to (2.5,0.25) to (2.5,-0.75) to (0,-0.75) to (0,1);
-						\strand[thick, red] (1,2) to (1,3.25) to (1.5,3.25) to (1.5,2.75) to (2.5,1.75) to (2.5,1.25) to (1.5,0.25) to (1.5,-0.25) to (1,-0.25) to (1,1);
-						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
-						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
-						\flipcrossings{1,2}
-					\end{knot}
-					\node at (3,0.75) {\(g^{-1}\)};
-					\node at (-0.5,1.5) {\(b\)};
-					\node at (3,2.25) {\(g\)};
-				\end{tikzpicture}}
-			\qquad\subcaptionbox*{}{
-				\begin{tikzpicture}[scale=0.6]
+				\begin{tikzpicture}
 					\begin{knot}[clip width = 5]
 						\strand[thick, red] (0,2) to (0,3) to (2,3) to (2,0) to (0,0) to (0,1);
 						\strand[thick, red] (1,2) to (1,2.5) to (1.5,2.5) to (1.5,0.5) to (1,0.5) to (1,1);
-						\strand[very thick, blue] (1,1) to [out=90,in=-90, blue] (0,2);
-						\strand[very thick, blue] (0,1) to [out=90,in=-90, blue] (1,2);
-						\flipcrossings{1,2}
+						\strand[very thick, beamer@blendedblue] (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+						\strand[very thick, beamer@blendedblue] (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
+						\flipcrossings{2}
 					\end{knot}
 					\node at (-0.5,1.5) {\(b\)};
+					\node at (1,-0.5) {\(\overline{b}\)};
 				\end{tikzpicture}}
-			\caption{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\).}
-			\label{fig:conjugation}
+			\quad\quad\quad\subcaptionbox*{}{
+				\begin{tikzpicture}
+					\begin{knot}[clip width = 5]
+						\strand[very thick, beamer@blendedblue] (0,0) to (0,1) to [out=90,in=-90, beamer@blendedblue] (1,2);
+						\strand[thick, red] (1,2) to (1,3) to (3,3) to (3,-1) to (1,-1) to (1,0);
+						\strand[very thick, beamer@blendedblue] (1,0) to [out=90,in=-90, beamer@blendedblue] (2,1) to (2,2);
+						\strand[thick, red] (2,2) to (2,2.5) to (2.5,2.5) to (2.5,-0.5) to (2,-0.5) to (2,0);
+						\strand[very thick, beamer@blendedblue] (2,0) to [out=90,in=-90, beamer@blendedblue]  (1,1) to [out=90,in=-90, beamer@blendedblue] (0,2);
+						\strand[thick, red] (0,2) to (0,3.5) to (3.5,3.5) to (3.5,-1.5) to (0,-1.5) to (0,0);
+						\flipcrossings{1}
+					\end{knot}
+					\node at (1.75,-2) {\(\overline{b\hspace{1pt}\sigmaa_2}\)};
+				\end{tikzpicture}}
+			\caption{Markov move with \(b = \sigmaa_1^{-1}\).}
+			\label{fig:markovmove}
 		\end{figure}
 	\end{frame}
 
