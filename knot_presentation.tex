@@ -166,10 +166,10 @@
 				\draw[cube] (5,2,-1) -- (5,2,1);
 
 				\begin{knot}[clip width=8]
-					\strand[thick, red] (1,0,0) to [in angle=-90, curve through = {(1,1,0.5)}] (4,2,0) node[black, below]{\(p_1\)};
-					\strand[thick, red] (2,0,0) to [in angle=-90, curve through = {(1.7,1.5,0.5)}] (1,2,0) node[black, below]{\(p_2\)};
+					\strand[thick, red] (1,0,0) to [in angle=-90, curve through = {(1.3,0.7,0.5)}] (4,2,0) node[black, below]{\(p_1\)};
+					\strand[thick, red] (2,0,0) to [in angle=-90, curve through = {(1.3,1.5,0.5)}] (1,2,0) node[black, below]{\(p_2\)};
 					\strand[thick, red] (3,0,0) to [in angle=-90, curve through = {(3,0.5,0.7)}] (2,2,0) node[black, below]{\(p_3\)};
-					\strand[thick, red] (4,0,0) to [in angle=-90, curve through = {(3,1.3,-0.5)}] (3,2,0) node[black, below]{\(p_4\)};
+					\strand[thick, red] (4,0,0) to [in angle=-90, curve through = {(3.2,1.3,-0.5)}] (3,2,0) node[black, below]{\(p_4\)};
 					\flipcrossings{2}
 				\end{knot}
 
@@ -200,10 +200,10 @@
 				\draw[axis] (0,0,0) -- (0,2.8) node[anchor=south]{\(y\)};
 
 				\begin{knot}[clip width=8]
-					\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.5,1)}] (4,2) node[black, below]{\(p_1\)};
-					\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.7,1.5)}] (1,2) node[black, below]{\(p_2\)};
-					\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(3,0.5)}] (2,2) node[black, below]{\(p_3\)};
-					\strand[thick, red] (4,0) to [in angle=-90, out angle=90, curve through = {(3,1.3)}] (3,2) node[black, below]{\(p_4\)};
+					\strand[thick, red] (1,0) to [in angle=-90, out angle=90, curve through = {(1.3,0.4)}] (4,2) node[black, below]{\(p_1\)};
+					\strand[thick, red] (2,0) to [in angle=-90, out angle=90, curve through = {(1.3,1.2)}] (1,2) node[black, below]{\(p_2\)};
+					\strand[thick, red] (3,0) to [in angle=-90, out angle=90, curve through = {(2.8,0.5)}] (2,2) node[black, below]{\(p_3\)};
+					\strand[thick, red] (4,0) to [in angle=-90, out angle=90, curve through = {(3.2,1.6)}] (3,2) node[black, below]{\(p_4\)};
 					\flipcrossings{2}
 				\end{knot}
 
@@ -654,9 +654,19 @@
 			\caption{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\) (part 2)}
 			\label{fig:conjugationtwo}
 		\end{figure}
-
 	\end{frame}
 
+	\begin{frame}
+		\frametitle{Markov theorem}
+		\begin{thm}[Markov]
+			Two braids whose closures are ambient isotopic to each other are related by a finite sequence of the following operations.
+			\begin{enumerate}
+				\item Braid equivalences, i.e.\@ equivalences resulting due to the braid relations.
+				\item Conjugation.
+				\item Markov moves.
+			\end{enumerate}
+		\end{thm}
+	\end{frame}
 
 	\begin{frame}
 		\frametitle{Markov move}
@@ -692,6 +702,12 @@
 		\end{figure}
 	\end{frame}
 
+	\section{Orientation}
+
+	\begin{frame}
+		\frametitle{Orientation}
+
+	\end{frame}
 
 
 
