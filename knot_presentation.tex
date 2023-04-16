@@ -98,6 +98,7 @@
 	}}
 \newcommand\unslant[2][-.25]{\slantbox[#1]{$#2$}}
 \newcommand{\sigmaa}{\unslant\sigma\!}
+\newcommand{\updelta}{\unslant\delta\!}
 
 \definecolor{beamer@blended}{rgb}{0.2,0.2,0.7}
 
@@ -143,6 +144,8 @@
 		\draw[line width=0.7pt] (0.95,-0.32) -- (0.95,0.32);
 	}
 }
+
+
 
 \begin{document}
 
@@ -1010,12 +1013,29 @@
 						\draw[very thick, beamer@blendedblue] (0,2) .. controls (0,1.5) and (1,1.5) .. (1,2);
 					\end{knot}
 				\end{tikzpicture}}
-			\caption{Writing a state of a braid closure in terms of input-output forms.}
+			\caption{Writing a state of a braid closure in terms of input-output forms}
 			\label{fig:inputoutputexampletwo}
 		\end{figure}
-
 	\end{frame}
 
+	\begin{frame}
+		\[\braket<b> = \braket<S(b)> = \sum_s \braket<b|s> \braket<P_s> = \sum_s \braket<b|s>\hspace{1pt}\updelta^{\hspace{1pt}\norm{s}}\]\vspace{5pt}
+
+		\[\begin{array}{rll}
+			\left\langle S(b) \right\rangle &:& \text{ Substituting } \left\langle \sigmaa_i \right\rangle = A\left\langle \I_n \right\rangle + A^{-1}\left\langle \mathrm{U}_i \right\rangle \text{ and } \vspace{5pt}\\
+			& & \left\langle{\sigmaa_{i}^{-1}}\right\rangle = A\left\langle\mathrm{U}_i \right\rangle + A^{-1}\left\langle \I_n \right\rangle \vspace{5pt}\\
+
+			s &:& \text{ A state in the expansion }\vspace{5pt}\\
+
+			P_s &:& \text{ Product of } \U_i \text{'s }\vspace{5pt}\\
+
+			\left\langle b|s \right\rangle &:& \text{ Product of } A\text{'s and } A^{-1}\text{'s}\vspace{5pt}\\
+
+			\updelta &:& \hspace{2pt}-A^2 - A^{-2}\vspace{5pt}\\
+
+			\norm{s} &:& \text{ Number of loops in } s \text{ minus one }
+		\end{array}\]
+	\end{frame}
 
 
 
