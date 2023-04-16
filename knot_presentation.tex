@@ -672,7 +672,7 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Conjugation}
+		\frametitle{Conjugation (contd.)}
 		\begin{figure}
 		    \centering
 			\begin{tikzpicture}[scale=1]
@@ -957,37 +957,45 @@
 			\subcaptionbox*{\(b\)}{
 				\begin{tikzpicture}
 					\begin{knot}[clip width=5]
-						\strand[very thick, blue] (2,0) to [out=90,in=-90] (1,1);
-						\strand[very thick, blue] (1,1) [out=90,in=-90] to (0,2);
-						\strand[very thick, blue] (1,0) to [out=90,in=-90] (2,1);
-						\strand[very thick, blue] (2,1) [out=90,in=-90] to (2,2);
-						\strand[very thick, blue] (0,0) to [out=90,in=-90] (0,1);
-						\strand[very thick, blue] (0,1) [out=90,in=-90] to (1,2);
+						\strand[very thick, beamer@blendedblue] (2,0) to [out=90,in=-90] (1,1);
+						\strand[very thick, beamer@blendedblue] (1,1) [out=90,in=-90] to (0,2);
+						\strand[very thick, beamer@blendedblue] (1,0) to [out=90,in=-90] (2,1);
+						\strand[very thick, beamer@blendedblue] (2,1) [out=90,in=-90] to (2,2);
+						\strand[very thick, beamer@blendedblue] (0,0) to [out=90,in=-90] (0,1);
+						\strand[very thick, beamer@blendedblue] (0,1) [out=90,in=-90] to (1,2);
 						\flipcrossings{2}
 					\end{knot}
 				\end{tikzpicture}}
-			\quad\quad\subcaptionbox*{\(\overline{b}\)}{
+			\quad\quad\quad\subcaptionbox*{\(\overline{b}\)}{
 				\begin{tikzpicture}
 					\begin{knot}[clip width=5]
-						\strand[very thick, blue] (2,0) to [out=90,in=-90] (1,1);
-						\strand[very thick, blue] (1,1) [out=90,in=-90] to (0,2);
-						\strand[very thick, blue] (1,0) to [out=90,in=-90] (2,1);
-						\strand[very thick, blue] (2,1) [out=90,in=-90] to (2,2);
-						\strand[very thick, blue] (0,0) to [out=90,in=-90] (0,1);
-						\strand[very thick, blue] (0,1) [out=90,in=-90] to (1,2);
+						\strand[very thick, beamer@blendedblue] (2,0) to [out=90,in=-90] (1,1);
+						\strand[very thick, beamer@blendedblue] (1,1) [out=90,in=-90] to (0,2);
+						\strand[very thick, beamer@blendedblue] (1,0) to [out=90,in=-90] (2,1);
+						\strand[very thick, beamer@blendedblue] (2,1) [out=90,in=-90] to (2,2);
+						\strand[very thick, beamer@blendedblue] (0,0) to [out=90,in=-90] (0,1);
+						\strand[very thick, beamer@blendedblue] (0,1) [out=90,in=-90] to (1,2);
 						\strand[thick, red] (2,2) to (2,2.5) to (2.5, 2.5) to (2.5,-0.5) to (2,-0.5) to (2,0);
 						\strand[thick, red] (1,2) to (1,3) to (3,3) to (3,-1) to (1,-1) to (1,0);
 						\strand[thick, red] (0,2) to (0,3.5) to (3.5,3.5) to (3.5,-1.5) to (0,-1.5) to (0,0);
 						\flipcrossings{2}
 					\end{knot}
-				\end{tikzpicture}}\par\bigskip
+				\end{tikzpicture}}
+			\label{fig:inputoutputexampleone}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Example (contd.)}
+		\begin{figure}
+		    \centering
 			\subcaptionbox*{\(s = \overline{U_1 U_2}\)}{
 				\begin{tikzpicture}
 					\begin{knot}[clip width=5]
-						\draw[very thick, blue] (1,0) .. controls (1,0.5) and (2,0.5) .. (2,0);
-						\draw[very thick, blue] (1,1) .. controls (1,0.5) and (2,0.5) .. (2,1) to (2,2);
-						\draw[very thick, blue] (0,0) to (0,1) .. controls (0,1.5) and (1,1.5) .. (1,1);
-						\draw[very thick, blue] (0,2) .. controls (0,1.5) and (1,1.5) .. (1,2);
+						\draw[very thick, beamer@blendedblue] (1,0) .. controls (1,0.5) and (2,0.5) .. (2,0);
+						\draw[very thick, beamer@blendedblue] (1,1) .. controls (1,0.5) and (2,0.5) .. (2,1) to (2,2);
+						\draw[very thick, beamer@blendedblue] (0,0) to (0,1) .. controls (0,1.5) and (1,1.5) .. (1,1);
+						\draw[very thick, beamer@blendedblue] (0,2) .. controls (0,1.5) and (1,1.5) .. (1,2);
 						\strand[thick, red] (2,2) to (2,2.5) to (2.5, 2.5) to (2.5,-0.5) to (2,-0.5) to (2,0);
 						\strand[thick, red] (1,2) to (1,3) to (3,3) to (3,-1) to (1,-1) to (1,0);
 						\strand[thick, red] (0,2) to (0,3.5) to (3.5,3.5) to (3.5,-1.5) to (0,-1.5) to (0,0);
@@ -996,16 +1004,18 @@
 			\quad\quad\quad\subcaptionbox*{\(U_1 U_2\)}{
 				\begin{tikzpicture}
 					\begin{knot}[clip width=5]
-						\draw[very thick, blue] (1,0) .. controls (1,0.5) and (2,0.5) .. (2,0);
-						\draw[very thick, blue] (1,1) .. controls (1,0.5) and (2,0.5) .. (2,1) to (2,2);
-						\draw[very thick, blue] (0,0) to (0,1) .. controls (0,1.5) and (1,1.5) .. (1,1);
-						\draw[very thick, blue] (0,2) .. controls (0,1.5) and (1,1.5) .. (1,2);
+						\draw[very thick, beamer@blendedblue] (1,0) .. controls (1,0.5) and (2,0.5) .. (2,0);
+						\draw[very thick, beamer@blendedblue] (1,1) .. controls (1,0.5) and (2,0.5) .. (2,1) to (2,2);
+						\draw[very thick, beamer@blendedblue] (0,0) to (0,1) .. controls (0,1.5) and (1,1.5) .. (1,1);
+						\draw[very thick, beamer@blendedblue] (0,2) .. controls (0,1.5) and (1,1.5) .. (1,2);
 					\end{knot}
 				\end{tikzpicture}}
 			\caption{Writing a state of a braid closure in terms of input-output forms.}
-			\label{fig:inputoutputexample}
+			\label{fig:inputoutputexampletwo}
 		\end{figure}
+
 	\end{frame}
+
 
 
 
