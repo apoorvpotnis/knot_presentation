@@ -765,17 +765,19 @@
 
 	\begin{frame}
 		%\frametitle{}
-		For the consistency of the orientation, it must be either upwards or downwards for all strands.\vspace{2em}
+		For the consistency of the orientation, it must be either upwards or downwards for all strands.\vspace{1.5em}
 
 		\begin{figure}
-			\centering
-			\subcaptionbox*{Assignment of \(+1\) to \(\sigmaa_i\)}[10em]{
+			\centering\captionsetup[subfigure]{justification=centering}
+			\subcaptionbox*{\(\sigmaa_i\) gets \(+1\) assigned}{
 			\begin{tikzpicture}[scale=0.7]
 				\begin{knot}[clip width=8]
 % 					\strand[thick, red] (-3,-0.1) to (-3,2.1);
 % 					\strand[thick, red] (-1,-0.1) to (-1,2.1);
-					\strand[thick, red] (0,0) to (2,2);
-					\strand[thick, red] (2,0) to (0,2);
+					\strand[thick, red, <-] (0,0) to (2,2);
+					\strand[thick, red, <-] (2,0) to (0,2);
+					\strand[thick, red, ->] (4,0) to (6,2);
+					\strand[thick, red, ->] (6,0) to (4,2);
 % 					\strand[thick, red] (3,-0.1) to (3,2.1);
 % 					\strand[thick, red] (5,-0.1) to (5,2.1);
 				\end{knot}
@@ -801,13 +803,15 @@
 
 % 				\vspace{12pt}
 
-			\par\bigskip\subcaptionbox*{Assignment of \(-1\) to \(\sigmaa_i^{-1}\)}[10em]{
+			\par\bigskip\subcaptionbox*{\(\sigmaa_i^{-1}\) gets \(-1\) assigned}{
 			\begin{tikzpicture}[scale=0.7]
 					\begin{knot}[clip width=8]
 % 						\strand[thick, red] (-3,-0.1) to (-3,2.1);
 % 						\strand[thick, red] (-1,-0.1) to (-1,2.1);
-					\strand[thick, red] (0,0) to (2,2);
-					\strand[thick, red] (2,0) to (0,2);
+						\strand[thick, red, <-] (0,0) to (2,2);
+						\strand[thick, red, <-] (2,0) to (0,2);
+						\strand[thick, red, ->] (4,0) to (6,2);
+						\strand[thick, red, ->] (6,0) to (4,2);
 % 						\strand[thick, red] (3,-0.1) to (3,2.1);
 % 						\strand[thick, red] (5,-0.1) to (5,2.1);
 					\flipcrossings{1}
@@ -834,10 +838,15 @@
 % 			\caption{Generators \(\sigmaa_i\) and \(\sigmaa_i^{-1}\)}
 			\label{fig:geometricbraidgeneratorssign}
 		\end{figure}
+
+		Writhe is the sum of the assigned numbers.
 	\end{frame}
 
+	\section{Markov trace}
 
-
+	\begin{frame}
+		\frametitle{Markov trace}
+	\end{frame}
 
 
 \end{document}
