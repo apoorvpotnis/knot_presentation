@@ -16,6 +16,7 @@
 \usepackage{tikz, tikz-3dplot, tikz-cd, adjustbox, subcaption, changepage, mathtools, boldline, makecell, booktabs, graphicx}
 \usetikzlibrary{knots, hobby, braids, decorations.markings, arrows.meta}
 \usepackage{amsthm}
+\usepackage{physics2}\usephysicsmodule{ab,ab.braket}
 
 \usepackage{amsfonts, esint, slantsc, bboldx}
 \usepackage{sansmathfonts}
@@ -30,17 +31,19 @@
 % \AtBeginDocument{\newcommand*\pii{\mathrm{π}}}
 \newcommand{\R}{\mathbfbb{R}}
 \newcommand{\C}{\mathbfbb{C}}
+\newcommand{\Z}{\mathbfbb{Z}}
+
 % \renewcommand*{\hbar}{\mathrm{^^^^0127}}
 \renewcommand{\i}{\mathrm{i}}
 % \newcommand{\I}{\mathbfbb{I}}
-\newcommand{\Z}{\mathbfbb{Z}}
 \newcommand{\ssep}{\mid}
 \newcommand{\B}{\mathrm{B}}
+\newcommand{\U}{\mathrm{U}}
 \newcommand{\GB}{\text{GB}}
 \newcommand{\TL}{\text{TL}}
 % \newcommand{\sigmaa}{\mathrm{\sigma}}
 % \newcommand{\tauu}{\mathrm{\tau}}
-\newcommand{\U}{\mathrm{U}}
+% \newcommand{\U}{\mathrm{U}}
 % \DeclarePairedDelimiterX\presentation[1]\langle\rangle{\def\given{\;\delimsize\vert\;}#1}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\setaux#1}
@@ -97,6 +100,49 @@
 \newcommand{\sigmaa}{\unslant\sigma\!}
 
 \definecolor{beamer@blended}{rgb}{0.2,0.2,0.7}
+
+\newcommand{\KP}[1]{%
+	\begin{tikzpicture}[baseline=-\dimexpr\fontdimen22\textfont2\relax]
+		#1
+	\end{tikzpicture}%
+}
+\newcommand{\BPB}{
+	\KP{
+		\draw[line width=0.7pt] (-0.3,0.3) -- (0.3,-0.3);
+		\draw[line width=0.7pt] (-0.3,-0.3) -- (-0.05,-0.05);
+		\draw[line width=0.7pt] (0.05,0.05) -- (0.3,0.3);
+		\draw[line width=0.7pt] (-0.45,-0.32) -- (-0.45,0.32);
+		\node at (-0.7,0) {\(\cdots\)};
+		\draw[line width=0.7pt] (-0.95,-0.32) -- (-0.95,0.32);
+		\draw[line width=0.7pt] (0.45,-0.32) -- (0.45,0.32);
+		\node at (0.7,0) {\(\cdots\)};
+		\draw[line width=0.7pt] (0.95,-0.32) -- (0.95,0.32);
+	}
+}
+\newcommand{\BPD}{
+	\KP{
+		\draw[line width=0.7pt] (-0.3,0.3) .. controls (0,-0.05) .. (0.3,0.3);
+		\draw[line width=0.7pt] (-0.3,-0.3) .. controls (0,0.05) .. (0.3,-0.3);
+		\draw[line width=0.7pt] (-0.45,-0.32) -- (-0.45,0.32);
+		\node at (-0.7,0) {\(\cdots\)};
+		\draw[line width=0.7pt] (-0.95,-0.32) -- (-0.95,0.32);
+		\draw[line width=0.7pt] (0.45,-0.32) -- (0.45,0.32);
+		\node at (0.7,0) {\(\cdots\)};
+		\draw[line width=0.7pt] (0.95,-0.32) -- (0.95,0.32);
+	}
+}
+\newcommand{\BPE}{
+	\KP{
+		\draw[line width=0.7pt] (-0.3,-0.3) .. controls (0.05,0) .. (-0.3,0.3);
+		\draw[line width=0.7pt] (0.3,-0.3) .. controls (-0.05,0) .. (0.3,0.3);
+		\draw[line width=0.7pt] (-0.45,-0.32) -- (-0.45,0.32);
+		\node at (-0.7,0) {\(\cdots\)};
+		\draw[line width=0.7pt] (-0.95,-0.32) -- (-0.95,0.32);
+		\draw[line width=0.7pt] (0.45,-0.32) -- (0.45,0.32);
+		\node at (0.7,0) {\(\cdots\)};
+		\draw[line width=0.7pt] (0.95,-0.32) -- (0.95,0.32);
+	}
+}
 
 \begin{document}
 
@@ -842,11 +888,31 @@
 		Writhe is the sum of the assigned numbers.
 	\end{frame}
 
-	\section{Markov trace}
+% 	\section{Markov trace}
 
 	\begin{frame}
-		\frametitle{Markov trace}
+% 		\frametitle{Markov trace}
+		Bracket polynomial of a braid:
+		\begin{align*}
+			\langle \cdot \rangle &\colon \B_n \rightarrow \Z[A, A^{-1}]\\
+			\langle \cdot \rangle &\colon b \mapsto \langle \overline{b}\hspace{1pt}\rangle
+		\end{align*}
+		\(\langle \cdot \rangle\) is well defined and invariant under conjugation.\vspace{20pt}
+
+		Normalisation using writhe:
+		\[L(K) \coloneq (-A^3)^{-w(b)}\langle \overline{b}\hspace{1pt}\rangle\]
 	\end{frame}
+
+	\begin{frame}
+		\[\left\langle\BPB\right\rangle = A\left\langle\BPD\right\rangle + A^{-1}\left\langle\BPE\right\rangle\]\vspace{5pt}
+
+		\[\BPE = \I_n \quad\text{ and }\quad \U_i \coloneq \BPD\]\vspace{10pt}
+
+		\[\left\langle{\sigmaa_{i}^{-1}}\right\rangle = A\braket<\mathrm{U}_i> + A^{-1}\braket<\I_n>\]
+
+		\[\braket<\sigmaa_i> = A\braket<\I_n> + A^{-1}\braket<\mathrm{U}_i>\]
+	\end{frame}
+
 
 
 \end{document}
