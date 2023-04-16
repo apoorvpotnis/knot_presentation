@@ -71,21 +71,21 @@
 		\right|_{#2} % this is the delimiter
 	}}
 
-\title{Braids and the Jones polynomial}
+\title{Braids and the bracket polynomial}
 \subtitle{Thesis presentation}
 \author{Apoorv Potnis}
 \institute{IISERB}
-\date{April 2023}
+\date{April 17, 2023}
 
-\AtBeginSection[]
-{
-	\begin{frame}
-		\frametitle{Table of Contents}
-		\tableofcontents[currentsection, currentsubsection]
-	\end{frame}
-	\frame{\sectionpage}
-}
-\AtBeginSubsection{\frame{\subsectionpage}}
+% \AtBeginSection[]
+% {
+% 	\begin{frame}
+% 		\frametitle{Table of Contents}
+% 		\tableofcontents[currentsection, currentsubsection]
+% 	\end{frame}
+% 	\frame{\sectionpage}
+% }
+% \AtBeginSubsection{\frame{\subsectionpage}}
 
 \newsavebox{\foobox}
 \newcommand{\slantbox}[2][0]{\mbox{%
@@ -148,6 +148,8 @@
 
 
 \begin{document}
+
+	\setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
 	\maketitle
 
@@ -231,7 +233,7 @@
 				\draw[cube] (0,0,+1) -- (0,2,+1) -- (5,2,+1) -- (5,0,+1) -- cycle;
 
 			\end{tikzpicture}
-			\caption{Three dimensional geometric representation of a braid}
+			\caption**{Three dimensional geometric representation of a braid}
 		\end{figure}
 	\end{frame}
 
@@ -261,7 +263,7 @@
 				\node[below, label={\(q_3\)}] at (3,2) {};
 				\node[below, label={\(q_4\)}] at (4,2) {};
 			\end{tikzpicture}
-			\caption{A projection of the braid}
+			\caption**{A projection of the braid}
 			\label{fig:2drepbraids}
 		\end{figure}
 	\end{frame}
@@ -297,7 +299,7 @@
 						\strand[thick, red] (3,2) to [in angle=-90, out angle=90, curve through = {(2,3.3)}] (2,4);
 					\end{knot}
 				\end{tikzpicture}\label{fig:braidmultiplication3}}
-			\caption{Multiplication of two braids}\label{fig:braidmultiplication}
+			\caption*{Multiplication of two braids}\label{fig:braidmultiplication}
 		\end{figure}
 	\end{frame}
 
@@ -312,7 +314,7 @@
 % 					\flipcrossings{2}
 				\end{knot}
 			\end{tikzpicture}
-			\caption{The identity \(\I_3\)}
+			\caption*{The identity \(\I_3\)}
 			\label{fig:braididentity}
 		\end{figure}
 	\end{frame}
@@ -372,7 +374,7 @@
 %
 % 					%\node at (2, -1.2) {\(b_1 b_2\)};
 % 				\end{tikzpicture}\label{fig:braidinverse4}}
-			\caption{Inverse of a braid}\label{fig:braidinverse}
+			\caption*{Inverse of a braid}\label{fig:braidinverse}
 		\end{figure}
 	\end{frame}
 
@@ -446,7 +448,7 @@
 					\node at (1, -1.1) {\(\sigmaa_i^{-1}\)};
 				\end{tikzpicture}
 
-			\caption{Generators \(\sigmaa_i\) and \(\sigmaa_i^{-1}\)}
+			\caption*{Generators \(\sigmaa_i\) and \(\sigmaa_i^{-1}\)}
 			\label{fig:geometricbraidgenerators}
 		\end{figure}
 	\end{frame}
@@ -479,7 +481,7 @@
 				\node at (1, -0.7) {\(\I_n\)};
 			\end{tikzpicture}
 
-			\captionof{figure}{A type II move illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_i^{-1} = \I_n\)}
+			\caption*of{figure}{A type II move illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_i^{-1} = \I_n\)}
 			\label{fig:type2}
 		\end{figure}
 	\end{frame}
@@ -513,7 +515,7 @@
 				\node at (2, -0.7) {\(\sigmaa_{i+1} \sigmaa_i\hspace{1pt} \sigmaa_{i+1}\)};
 			\end{tikzpicture}
 
-			\captionof{figure}{A type III move illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_{i+1} \sigmaa_i = \sigmaa_{i+1} \sigmaa_i\hspace{1pt} \sigmaa_{i+1}\)}
+			\caption*of{figure}{A type III move illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_{i+1} \sigmaa_i = \sigmaa_{i+1} \sigmaa_i\hspace{1pt} \sigmaa_{i+1}\)}
 			\label{fig:type3}
 		\end{figure}
 	\end{frame}
@@ -548,7 +550,7 @@
 				\node at (3, -0.7) {\(\sigmaa_j\hspace{1pt} \sigmaa_i\)};
 			\end{tikzpicture}
 
-			\captionof{figure}{Sliding of crossings illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_j = \sigmaa_j\hspace{1pt} \sigmaa_i\)}
+			\caption*of{figure}{Sliding of crossings illustrating \(\sigmaa_i\hspace{1pt} \sigmaa_j = \sigmaa_j\hspace{1pt} \sigmaa_i\)}
 			\label{fig:sliding}
 		\end{figure}
 	\end{frame}
@@ -597,7 +599,7 @@
 					\end{knot}
 					\node at (1,-0.5) {\(\overline{b}\)};
 				\end{tikzpicture}
-			\caption{Closure of a braid}
+			\caption*{Closure of a braid}
 			\label{fig:closure}
 		\end{figure}
 	\end{frame}
@@ -669,7 +671,7 @@
 % 					\end{knot}
 % 					\node at (-0.5,1.5) {\(b\)};
 % 				\end{tikzpicture}}
-			\caption{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\) (part 1)}
+			\caption*{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\) (part 1)}
 			\label{fig:conjugationone}
 		\end{figure}
 	\end{frame}
@@ -700,7 +702,7 @@
 					\end{knot}
 				\end{scope}
 			\end{tikzpicture}
-			\caption{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\) (part 2)}
+			\caption*{Conjugation process illustrating the link equivalence of \(\overline{g b g^{-1}}\) and \(\overline{b}\) (part 2)}
 			\label{fig:conjugationtwo}
 		\end{figure}
 	\end{frame}
@@ -746,7 +748,7 @@
 					\end{knot}
 					\node at (1.75,-2) {\(\overline{b\hspace{1pt}\sigmaa_2}\)};
 				\end{tikzpicture}}
-			\caption{Markov move with \(b = \sigmaa_1^{-1}\).}
+			\caption*{Markov move with \(b = \sigmaa_1^{-1}\).}
 			\label{fig:markovmove}
 		\end{figure}
 	\end{frame}
@@ -763,8 +765,8 @@
 				grid/.style={very thin,gray},
 				axis/.style={->,beamer@blendedblue,thick}]
 
-				\draw[axis] (0,0,0) -- (5,0) node[anchor=west]{\(x\)};
-				\draw[axis] (0,0,0) -- (0,2.8) node[anchor=south]{\(y\)};
+% 				\draw[axis] (0,0,0) -- (5,0) node[anchor=west]{\(x\)};
+% 				\draw[axis] (0,0,0) -- (0,2.8) node[anchor=south]{\(y\)};
 
 				\begin{knot}[clip width=8]
 					\strand[thick, red, draw=red,
@@ -774,7 +776,7 @@
 					decoration={
 						markings,
 						mark=at position .9 with {\arrowreversed{To}}
-					}] (1,0) to [in angle=-90, out angle=90, curve through = {(1.3,0.4)}] (4,2) node[black, below]{\(p_1\)};
+					}] (1,0) to [in angle=-90, out angle=90, curve through = {(1.3,0.4)}] (4,2);% node[black, below]{\(p_1\)};
 					\strand[thick, red,
 					only when rendering/.style={
 						postaction=decorate,
@@ -782,7 +784,7 @@
 					decoration={
 						markings,
 						mark=at position .8 with {\arrowreversed{To}}
-					}] (2,0) to [in angle=-90, out angle=90, curve through = {(1.3,1.2)}] (1,2) node[black, below]{\(p_2\)};
+					}] (2,0) to [in angle=-90, out angle=90, curve through = {(1.3,1.2)}] (1,2);% node[black, below]{\(p_2\)};
 					\strand[thick, red,
 					only when rendering/.style={
 						postaction=decorate,
@@ -790,7 +792,7 @@
 					decoration={
 						markings,
 						mark=at position .8 with {\arrowreversed{To}}
-					}] (3,0) to [in angle=-90, out angle=90, curve through = {(2.8,0.5)}] (2,2) node[black, below]{\(p_3\)};
+					}] (3,0) to [in angle=-90, out angle=90, curve through = {(2.8,0.5)}] (2,2);% node[black, below]{\(p_3\)};
 					\strand[thick, red,
 					only when rendering/.style={
 						postaction=decorate,
@@ -798,16 +800,16 @@
 					decoration={
 						markings,
 						mark=at position .8 with {\arrowreversed{To}}
-					}] (4,0) to [in angle=-90, out angle=90, curve through = {(3.2,1.6)}] (3,2) node[black, below]{\(p_4\)};
+					}] (4,0) to [in angle=-90, out angle=90, curve through = {(3.2,1.6)}] (3,2);% node[black, below]{\(p_4\)};
 					\flipcrossings{2}
 				\end{knot}
 
-				\node[below, label={\(q_1\)}] at (1,2) {};
-				\node[below, label={\(q_2\)}] at (2,2) {};
-				\node[below, label={\(q_3\)}] at (3,2) {};
-				\node[below, label={\(q_4\)}] at (4,2) {};
+% 				\node[below, label={\(q_1\)}] at (1,2) {};
+% 				\node[below, label={\(q_2\)}] at (2,2) {};
+% 				\node[below, label={\(q_3\)}] at (3,2) {};
+% 				\node[below, label={\(q_4\)}] at (4,2) {};
 			\end{tikzpicture}
-			\caption{A projection of the braid with downward orientation}
+			\caption*{A 	braid with downward orientation}
 			\label{fig:2drepbraidsorientation}
 		\end{figure}
 	\end{frame}
@@ -817,8 +819,8 @@
 		For the consistency of the orientation, it must be either upwards or downwards for all strands.\vspace{1.5em}
 
 		\begin{figure}
-			\centering\captionsetup[subfigure]{justification=centering}
-			\subcaptionbox*{\(\sigmaa_i\) gets \(+1\) assigned}{
+			\centering\caption*setup[subfigure]{justification=centering}
+			\subcaptionbox*{\(\sigmaa_i\) gets assigned \(+1\)}{
 			\begin{tikzpicture}[scale=0.7]
 				\begin{knot}[clip width=8]
 % 					\strand[thick, red] (-3,-0.1) to (-3,2.1);
@@ -852,7 +854,7 @@
 
 % 				\vspace{12pt}
 
-			\par\bigskip\subcaptionbox*{\(\sigmaa_i^{-1}\) gets \(-1\) assigned}{
+			\par\bigskip\subcaptionbox*{\(\sigmaa_i^{-1}\) gets assigned \(-1\)}{
 			\begin{tikzpicture}[scale=0.7]
 					\begin{knot}[clip width=8]
 % 						\strand[thick, red] (-3,-0.1) to (-3,2.1);
@@ -884,7 +886,7 @@
 % 					\node at (1, -1.1) {\(\sigmaa_i^{-1}\)};
 			\end{tikzpicture}}
 
-% 			\caption{Generators \(\sigmaa_i\) and \(\sigmaa_i^{-1}\)}
+% 			\caption*{Generators \(\sigmaa_i\) and \(\sigmaa_i^{-1}\)}
 			\label{fig:geometricbraidgeneratorssign}
 		\end{figure}
 
@@ -948,7 +950,7 @@
 						\draw[thick, red] (-0.7,-0.3) -- (-0.7,0.3);
 					\end{knot}
 				\end{tikzpicture}}
-			\caption{Input-output forms or hooks for 4 strands}
+			\caption*{Input-output forms or hooks for 4 strands}
 			\label{fig:inputoutputforms}
 		\end{figure}
 	\end{frame}
@@ -1013,7 +1015,7 @@
 						\draw[very thick, beamer@blendedblue] (0,2) .. controls (0,1.5) and (1,1.5) .. (1,2);
 					\end{knot}
 				\end{tikzpicture}}
-			\caption{Writing a state of a braid closure in terms of input-output forms}
+			\caption*{Writing a state of a braid closure in terms of input-output forms}
 			\label{fig:inputoutputexampletwo}
 		\end{figure}
 	\end{frame}
@@ -1035,6 +1037,51 @@
 
 			\norm{s} &:& \text{ Number of loops in } s \text{ minus one }
 		\end{array}\]
+	\end{frame}
+
+	\section{Temperley--Lieb algebra}
+
+	\begin{frame}
+		\frametitle{Temperley--Lieb algebra \(\TL_n\)}
+		We give \(\U_i\)'s a structure of their own by constructing
+		\begin{itemize}
+		    \item over the ring \(\Z[A, A^{-1}]\)
+			\item the free additive algebra \(\TL_n\)
+			\item with the generators \(\U_1, \U_2,\ldots, \U_{n-1}\)
+			\item and the multiplicative relations coming from the interpretation of \(\U_i\)'s as input-output forms.
+		\end{itemize}\vspace{10pt}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Multiplicative relations in \(\TL_n\)}
+		Multiplicative relations in \(\TL_n\):\vspace{10pt}
+		\begin{enumerate}
+			\item \(\U_i\hspace{1pt}\U_{i\pm 1}\hspace{1pt}\U_i = \U_i\).
+			\item \(\U_i^2 = \updelta\hspace{1pt} \U_i\).
+			\item \(\U_i\hspace{1pt}\U_j = \U_j\hspace{1pt}\U_i\) if \(\abs{i-j} \geq 2\).
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Geometric interpretation of \(\U_1\U_2\U_1 = \U_1\)}
+		\begin{figure}
+			\centering
+			\begin{tikzpicture}
+				\begin{knot}[clip width=5]
+					\draw[thick, red] (0,0) .. controls (0,0.5) and (1,0.5) .. (1,0);
+					\draw[thick, red] (2,0) to (2,1) .. controls (2,1.5) and (1,1.5) .. (1,1) .. controls (1,0.5) and (0,0.5) .. (0,1) to (0,2) .. controls (0,2.5) and (1,2.5) .. (1,2) .. controls (1,1.5) and (2,1.5) .. (2,2) to (2,3);
+					\draw[thick, red] (0,3) .. controls (0,2.5) and (1,2.5) .. (1,3);
+					\node[label={\(\cong\)}] at (3,1.1) {};
+					\draw[thick, red] (4,0) -- (4,1) .. controls (4,1.5) and (5,1.5) .. (5,1) -- (5,0);
+					\draw[thick, red] (4,3) -- (4,2) .. controls (4,1.5) and (5,1.5) .. (5,2) -- (5,3);
+					\draw[thick, red] (6,0) -- (6,3);
+				\end{knot}
+				\node at (1,-0.5) {\(\U_1\U_2\U_1\)};
+				\node at (5,-0.5) {\(\U_1\)};
+			\end{tikzpicture}
+			\caption*{Geometric interpretation of \(\U_1\U_2\U_1 = \U_1\)}
+			\label{fig:inputoutputillus}
+		\end{figure}
 	\end{frame}
 
 
