@@ -26,6 +26,7 @@
 
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
+\newtheorem{defn}[thm]{Definition}
 
 \newcommand{\I}{\mathbfbb{I}}
 % \AtBeginDocument{\newcommand*\pii{\mathrm{π}}}
@@ -147,7 +148,46 @@
 	}
 }
 
-
+\newcommand{\KPA}{%
+	\KP{\filldraw[fill=none, line width=0.7pt] circle (0.3);}%
+}
+\newcommand{\KPB}{%
+	\KP{
+		\draw[line width=0.6pt] (-0.3,0.3) -- (0.3,-0.3);
+		\draw[line width=0.6pt] (-0.3,-0.3) -- (-0.05,-0.05);
+		\draw[line width=0.6pt] (0.05,0.05) -- (0.3,0.3);
+	}%
+}
+\newcommand{\KPC}{%
+	\KP{
+		\draw[line width=0.6pt] (-0.3,-0.3) -- (0.3,0.3);
+		\draw[line width=0.6pt] (-0.3,0.3) -- (-0.05,0.05);
+		\draw[line width=0.6pt] (0.05,-0.05) -- (0.3,-0.3);
+	}%
+}
+\newcommand{\KPD}{%
+	\KP{%
+		\draw[line width=0.6pt] (-0.3,0.3) .. controls (0,-0.05) .. (0.3,0.3);
+		\draw[line width=0.6pt] (-0.3,-0.3) .. controls (0,0.05) .. (0.3,-0.3);
+	}%
+}
+\newcommand{\KPDonethree}{%
+	\KP{%
+		\draw[line width=0.6pt] (-0.3,0.3) .. controls (0,-0.05) .. (0.3,0.3);
+		\draw[line width=0.6pt] (-0.3,-0.3) .. controls (0,0.05) .. (0.3,-0.3);
+		\draw[line width=0.6pt] (0.4,-0.31) -- (0.4,0.31);
+	}%
+}
+\newcommand{\KPE}{%
+	\KP{%
+		\draw[line width=0.6pt] (-0.3,-0.3) .. controls (0.05,0) .. (-0.3,0.3);
+		\draw[line width=0.6pt] (0.3,-0.3) .. controls (-0.05,0) .. (0.3,0.3);
+	}%
+}
+\newcommand{\BB}{\left\langle\KPB\right\rangle}
+\newcommand{\BC}{\left\langle\KPC\right\rangle}
+\newcommand{\BD}{\left\langle\KPD\right\rangle}
+\newcommand{\BE}{\left\langle\KPE\right\rangle}
 
 \begin{document}
 
@@ -162,6 +202,7 @@
 	\section{Outline}
 
 	\begin{frame}[fragile]\vspace{1em}
+		\frametitle{Outline}
 		\begin{adjustwidth}{-0.5em}{-1.4em}
 		\begin{tikzpicture}[baseline= (a).base]
 			\node[scale=1] (a) at (0,0){
@@ -811,7 +852,7 @@
 % 				\node[below, label={\(q_3\)}] at (3,2) {};
 % 				\node[below, label={\(q_4\)}] at (4,2) {};
 			\end{tikzpicture}
-			\caption*{A 	braid with downward orientation}
+			\caption*{A braid with downward orientation}
 			\label{fig:2drepbraidsorientation}
 		\end{figure}
 	\end{frame}
@@ -895,10 +936,35 @@
 		Writhe is the sum of the assigned numbers.
 	\end{frame}
 
+	\section{Kauffman's bracket polynomial}
+
+	\begin{frame}
+		\frametitle{Kauffman's bracket polynomial \(\braket<K>\)}
+
+		\begin{defn}[Kauffman's bracket polynomial]
+			Let \(K\) an un-oriented link diagram. Then the bracket \(\braket<K> \in \Z[A, A^{-1}]\) is defined by the rules:
+			\begin{enumerate}
+			    \item \(\braket<\KPA> = 1\).
+				\item \(\braket<\KPA \cup K> = (-A^2 - A^{-2}) \braket<K>\).
+				\item \(\BB = A\BD + A^{-1}\BE\).
+			\end{enumerate}\vspace{10pt}
+		\end{defn}
+
+		\(\braket<K>\) is invariant under the type II and type III moves.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Normalised bracket polynomial \(L(K)\)}
+		We can normalise \(\braket<K>\) by multiplying it with \((-A^3)^{-w(K)}\) gain type I move invariance.
+		\[L(K) \coloneq (-A^3)^{-w(K)} \braket<K>\]
+	\end{frame}
+
+
+
 % 	\section{Markov trace}
 
 	\begin{frame}
-% 		\frametitle{Markov trace}
+		\frametitle{Bracket polynomial of a braid}
 		Bracket polynomial of a braid:
 		\begin{align*}
 			\langle \cdot \rangle &\colon \B_n \rightarrow \Z[A, A^{-1}]\\
