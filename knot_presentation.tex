@@ -88,6 +88,9 @@
 % }
 % \AtBeginSubsection{\frame{\subsectionpage}}
 
+\usepackage[sorting=none]{biblatex}
+\addbibresource{thesis.bib}
+
 \newsavebox{\foobox}
 \newcommand{\slantbox}[2][0]{\mbox{%
 		\sbox{\foobox}{#2}%
@@ -1114,7 +1117,7 @@
 		We give \(\U_i\)'s a structure of their own by constructing
 		\begin{itemize}
 		    \item over the ring \(\Z[A, A^{-1}]\)
-			\item the free additive algebra \(\TL_n\)
+			\item the free additive algebra \(\TL_n\) (as a module)
 			\item with the generators \(\U_1, \U_2,\ldots, \U_{n-1}\)
 			\item and the multiplicative relations coming from the interpretation of \(\U_i\)'s as input-output forms.
 		\end{itemize}\vspace{10pt}
@@ -1225,9 +1228,65 @@
 		The substitution \(A = t^{-1/4}\) yields us the Jones polynomial.
 	\end{frame}
 
+	\begin{frame}
+		\frametitle{References}
+		Louis Kauffman's book on which this presentation is based:\vspace{10pt}
 
+		\fullcite{kauffman}
+	\end{frame}
 
+	\begin{frame}
+		\frametitle{References (contd.)}
+		Original papers by Emil Artin and Frederic Bohnenblust:\vspace{10pt}
+		\begin{enumerate}
+			\item \fullcite{artinzopfe}
 
+			This paper is in German. I am not aware of an English translation. It contains some errors which have been corrected in the 1947 paper by Artin.
+
+			\item \fullcite{artin}
+			\item \fullcite{bohnenblust}
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}
+	    \frametitle{References (contd.)}
+		General reference books for knot theory and braids:\vspace{10pt}
+		\begin{enumerate}
+			\item \fullcite{murasugibraids}
+			\item \fullcite{cromwell}
+			\item \fullcite{birman}
+
+			This book contains the first proof of the Markov theorem, based on the notes of J.\@ H.\@ Roberts and an unknown speaker at Princeton University.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{References (contd.)}
+		\begin{enumerate}
+			\item \fullcite{markov}
+
+			This paper is in German and contains a sketch of a proof.
+			\item \fullcite{alexander}
+
+			This paper introduced and proved the now known Alexander's theorem.
+			\item \fullcite{morton}
+
+			This paper contains a shorter proof of the Markov theorem.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{References (contd.)}
+		\begin{enumerate}
+			\item \fullcite{temperley-lieb}
+
+			This paper introduces the Temperley--Lieb algebras in a statistical physics context.
+			\item \fullcite{jones}
+
+			This paper introduces the Jones polynomial.
+		\end{enumerate}
+
+	\end{frame}
 
 
 
